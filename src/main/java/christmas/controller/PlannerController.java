@@ -25,7 +25,18 @@ public class PlannerController {
         Benefits benefits = plannerService.generateBenefits(orders, reservationDate);
         Badge badge = plannerService.determineBadge(benefits);
 
-        displayResults();
+        displayResults(reservationDate, orders, benefits, badge);
+    }
+
+    private void displayResults(LocalDate reservationDate, Orders orders, Benefits benefits, Badge badge) {
+        OutputView.printPreviewMessageOnReservationDate(reservationDate);
+        OutputView.printOrderMenus(orders);
+        OutputView.printTotalOrderAmountBeforeDiscounts(orders);
+        OutputView.printGiftMenus(benefits.getGifts());
+        OutputView.printTotalBenefits(benefits);
+        OutputView.printTotalBenefitsAmount(benefits);
+        OutputView.printTotalOrderAmountAfterDiscounts(orders, benefits.getDiscounts());
+        OutputView.printBadge(badge);
     }
 
 }
