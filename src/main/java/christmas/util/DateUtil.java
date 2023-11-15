@@ -3,11 +3,12 @@ package christmas.util;
 import christmas.exception.InvalidDateException;
 
 import java.time.DateTimeException;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.YearMonth;
 
-import static christmas.constant.PlannerConsts.MONTH_OF_PLANNER;
-import static christmas.constant.PlannerConsts.YEAR_OF_PLANNER;
+import static christmas.constant.PlannerConsts.*;
+import static christmas.constant.PlannerConsts.CHRISTMAS_DAY;
 
 public class DateUtil {
 
@@ -30,6 +31,18 @@ public class DateUtil {
         }
     }
 
+    public static boolean isWeekend(LocalDate date) {
+        DayOfWeek dayOfWeek = date.getDayOfWeek();
+        return dayOfWeek == DayOfWeek.FRIDAY || dayOfWeek == DayOfWeek.SATURDAY;
+    }
 
+    public static boolean isSpecialDay(LocalDate date) {
+        DayOfWeek dayOfWeek = date.getDayOfWeek();
+        return dayOfWeek == DayOfWeek.SUNDAY || date.getDayOfMonth() == CHRISTMAS_DAY;
+    }
+
+    public static boolean isDDayLeft(LocalDate date) {
+        return CHRISTMAS_DAY - date.getDayOfMonth() >= 0;
+    }
 
 }
