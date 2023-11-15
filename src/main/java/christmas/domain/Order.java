@@ -30,4 +30,12 @@ public class Order {
         return count;
     }
 
+    public boolean isMenuTypeOf(MenuType menuType) {
+        return menu.getType() == menuType;
+    }
+
+    public int calculateCost() {
+        return menu.getPrice() * count;
+    }
+
 }
