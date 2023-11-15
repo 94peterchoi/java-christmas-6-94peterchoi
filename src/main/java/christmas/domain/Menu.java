@@ -1,5 +1,7 @@
 package christmas.domain;
 
+import christmas.exception.InvalidOrderException;
+
 public enum Menu {
 
     MUSHROOM_SOUP(MenuType.APPETIZER, "양송이수프", 6000),
@@ -39,4 +41,14 @@ public enum Menu {
     public int getPrice() {
         return price;
     }
+
+    public static Menu getByName(String name) {
+        for (Menu menu : Menu.values()) {
+            if (menu.name.equals(name)) {
+                return menu;
+            }
+        }
+        throw new InvalidOrderException();
+    }
+
 }
