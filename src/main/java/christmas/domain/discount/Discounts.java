@@ -1,6 +1,5 @@
-package christmas.domain;
+package christmas.domain.discount;
 
-import christmas.domain.discount.Discount;
 import christmas.domain.discount.context.DiscountContext;
 import christmas.domain.discount.impl.DDayDiscount;
 import christmas.domain.discount.impl.SpecialDiscount;
