@@ -23,4 +23,10 @@ public class Gifts {
         return gifts.get(menu);
     }
 
+    public int getTotalAmountOfGifts() {
+        return gifts.keySet().stream()
+                .mapToInt(item -> item.getPrice() * gifts.get(item))
+                .sum();
+    }
+
 }
