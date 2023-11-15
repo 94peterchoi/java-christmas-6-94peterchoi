@@ -73,4 +73,8 @@ public class Discounts {
                 .sum();
     }
 
+    public List<Discount> getDiscounts() {
+        return discounts;
+    }
+
 }

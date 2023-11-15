@@ -63,4 +63,14 @@ public class Orders {
                 .sum();
     }
 
+    public int getTotalOrderAmountAfterDiscounts(int totalDiscountAmount) {
+        return getTotalOrderAmountBeforeDiscounts() - totalDiscountAmount;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+
+
 }
