@@ -1,6 +1,7 @@
 package christmas.util;
 
 import christmas.exception.InvalidDateException;
+import christmas.exception.InvalidOrderException;
 
 import java.util.regex.Pattern;
 
@@ -13,6 +14,14 @@ public class NumberUtil {
             return Integer.parseInt(input);
         } else {
             throw new InvalidDateException();
+        }
+    }
+
+    public static int parseInteger(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new InvalidOrderException();
         }
     }
 
