@@ -21,7 +21,7 @@ public class Orders {
             throw new InvalidOrderException();
         }
 
-        if (getCountOfAllOrdersExceptSpecificMenu(orders, MenuType.DRINK) < REQUIRED_FOOD_ORDER_COUNT) {
+        if (getCountOfAllOrdersExceptSpecificMenuType(orders, MenuType.DRINK) < REQUIRED_FOOD_ORDER_COUNT) {
             throw new InvalidOrderException();
         }
 
@@ -43,7 +43,7 @@ public class Orders {
                 .sum();
     }
 
-    public int getCountOfAllOrdersExceptSpecificMenu(List<Order> orders, MenuType menuType) {
+    public int getCountOfAllOrdersExceptSpecificMenuType(List<Order> orders, MenuType menuType) {
         return orders.stream()
                 .filter(order -> !order.isMenuTypeOf(menuType))
                 .mapToInt(Order::getCount)
@@ -56,4 +56,11 @@ public class Orders {
                 .mapToInt(Order::getCount)
                 .sum();
     }
+
+    public int getTotalOrderAmountBeforeDiscounts() {
+        return this.orders.stream()
+                .mapToInt(Order::calculateCost)
+                .sum();
+    }
+
 }
