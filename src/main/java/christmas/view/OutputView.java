@@ -74,7 +74,7 @@ public class OutputView {
         printDiscounts(discounts);
         printGifts(gifts);
 
-        if (discounts.getTotalDiscountAmount() == 0 && gifts.getTotalAmountOfGifts() == 0) {
+        if (discounts.getTotalDiscountAmount() == ZERO && gifts.getTotalAmountOfGifts() == ZERO) {
             System.out.println(NONE);
         }
 
@@ -89,7 +89,7 @@ public class OutputView {
 
     public static void printGifts(Gifts gifts) {
         int totalAmountOfGifts = gifts.getTotalAmountOfGifts();
-        if (totalAmountOfGifts > 0) {
+        if (totalAmountOfGifts > ZERO) {
             System.out.println(GIFT_EVENT + MINUS + formatCurrency(totalAmountOfGifts));
         }
     }
@@ -97,7 +97,7 @@ public class OutputView {
     public static void printTotalBenefitsAmount(Benefits benefits) {
         int totalBenefits = benefits.calculateTotalBenefits();
         System.out.println(TOTAL_BENEFIT_AMOUNT_MESSAGE);
-        if (totalBenefits > 0) {
+        if (totalBenefits > ZERO) {
             System.out.println(MINUS + formatCurrency(totalBenefits));
         } else {
             System.out.println(formatCurrency(totalBenefits));
